@@ -1,0 +1,1206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home office - Aprenda a montar o seu gastando pouco</title>
+    <!-- fontawesome-->
+    <link href="fontawesome/fontawesome-free-5.15.4-web/css/all.css" rel="stylesheet">
+    <style>
+        /*
+===============
+estilos globais
+===============
+*/
+        body {
+            font-family: sans-serif;
+            width: 100%;
+        }
+
+        .botao-cta-home-office {
+            /* display: inline-block; */
+            background: #ffd933;
+            color: black;
+            padding: 1rem;
+            margin: 2rem auto;
+            font-size: 1rem;
+            text-align: center;
+            font-weight: bold;
+            border-radius: 4rem;
+            max-width: 90rem;
+            text-decoration: none;
+        }
+
+        .botao-cta-home-office-final {
+            display: inline-block;
+            background: #ffd933;
+            color: white;
+            padding: 2rem;
+            font-size: 1rem;
+            text-align: center;
+            font-weight: bold;
+            border-radius: 2rem;
+            text-decoration: none;
+        }
+
+        @keyframes glowing {
+            0% {
+                background-color: #B20000;
+                box-shadow: 0 0 3px #B20000;
+            }
+
+            50% {
+                background-color: #FF0000;
+                box-shadow: 0 0 40px #FF0000;
+            }
+
+            100% {
+                background-color: #B20000;
+                box-shadow: 0 0 3px #B20000;
+            }
+        }
+
+        .botao-cta-home-office-final {
+            animation: glowing 1300ms infinite;
+        }
+
+        .botao-cta-home-office:hover {
+            background-color: red;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 4s ease-in-out linear;
+        }
+
+        /*botão responsivo*/
+        /* @media only screen and (min-width:300px){
+    .botao-cta-home-office{
+        font-size: 1rem;
+
+    }
+} */
+
+        /*
+===============
+Barra de navegação
+===============
+*/
+
+        .links-do-menu {
+            display: none;
+        }
+
+        .menu {
+            height: 5rem;
+            padding: 1rem;
+            display: grid;
+            align-items: center;
+            transition: 2s ease-in-out linear;
+        }
+
+        .menu-centralizado {
+            width: 100%;
+            max-width: 1170px;
+            margin: 0 auto;
+        }
+
+        .menu-cabeçalho {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            align-items: center;
+        }
+
+        .botão-do-menu {
+            background: transparent;
+            border-color: transparent;
+            color: black;
+            font-size: 2rem;
+            cursor: pointer;
+            justify-self: end;
+        }
+
+        @media screen and (min-width:300px) {
+            .logo-do-menu {
+                width: 60%;
+                padding: 2rem;
+            }
+        }
+
+        @media screen and (min-width:500px) {
+            .logo-do-menu {
+                width: 50%;
+            }
+        }
+
+        @media screen and (min-width:768px) {
+            .logo-do-menu {
+                width: 9rem;
+                position: relative;
+                bottom: 2rem;
+            }
+
+            .menu {
+                /*      background: rgb(253, 246, 44);*/
+                padding: 2rem;
+            }
+
+            .botão-do-menu {
+                display: none;
+            }
+
+            .links-do-menu {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                justify-items: center;
+                column-gap: 2rem;
+                justify-self: end;
+                list-style-type: none;
+                line-height: 1.5rem;
+                position: relative;
+                bottom: 2rem;
+                font-size: 1.2rem;
+            }
+
+            .links-do-menu a {
+                text-decoration: none;
+                text-transform: capitalize;
+                color: black;
+                font-weight: bold;
+                letter-spacing: 0.1rem;
+                transition: 5s ease-in-out linear;
+            }
+
+            .links-do-menu a:hover {
+                color: rgb(209, 77, 16);
+            }
+
+            .menu-centralizado {
+                display: grid;
+                grid-template-columns: auto 1fr;
+                align-items: center;
+            }
+        }
+
+        @media screen and (min-width:1170px) {
+            .links-do-menu {
+                font-size: 1.5rem;
+            }
+        }
+
+        /*
+===============
+menu-lateral
+===============
+*/
+
+        .container {
+            width: 100%;
+            height: 10vh;
+            background: linear-gradient rgba(0, 0, 0, 0.4), rgba(148, 48, 48, 0.2), rgba(167, 67, 67, 0.4)url(./imagens/home-of-vetor.jpg) center no-repeat;
+            background-size: cover;
+        }
+
+        .navbar {
+            width: 100%;
+            height: 100vh;
+            background-color: rgb(0, 0, 0);
+            position: fixed;
+            top: 30px;
+            right: -100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* border-radius: 200% 0 0 200%; */
+            transition: right .8s cubic-bezier(1, 0, 0, 1);
+        }
+
+        /* .nav-list li a{
+    text-align: center;
+} */
+        .change {
+            right: 0;
+        }
+
+        .hamburger-menu {
+            width: 35px;
+            height: 30px;
+            position: fixed;
+            top: 60px;
+            right: 50px;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+        }
+
+        .line {
+            width: 100%;
+            height: 3px;
+            background-color: chocolate;
+            transition: all 0.8s;
+        }
+
+        .change .line-1 {
+            transform: rotateZ(-405deg) translate(-8px, 6px);
+        }
+
+        .change .line-2 {
+            opacity: 0;
+        }
+
+        .change .line-3 {
+            transform: rotateZ(405deg) translate(-8px, -6px);
+        }
+
+        .nav-list {
+            text-align: right;
+        }
+
+        .nav-item {
+            list-style: none;
+            margin: 1rem;
+            padding: 0.5rem;
+            text-align: center;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            font-size: 1.6rem;
+            color: #ffd933;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            position: relative;
+            padding: 3px 0;
+        }
+
+        .nav-link::before,
+        .nav-link::after {
+            content: "";
+            width: 100%;
+            height: 2px;
+            background-color: chocolate;
+            position: absolute;
+            left: 0;
+            transform: scaleX(0);
+            transition: transform 0.5s;
+        }
+
+        .nav-link::after {
+            bottom: 0;
+            transform-origin: right;
+        }
+
+        .nav-link::before {
+            top: 0;
+            transform-origin: left;
+
+        }
+
+        .nav-link:hover::before,
+        .nav-link:hover::after {
+            transform: scaleX(1);
+        }
+
+        /*esconde o menu hamburger quando a tela tem 678 pixels*/
+        @media screen and (min-width: 678px) {
+            .container {
+                display: none;
+            }
+        }
+
+        /*
+===============
+introdução
+===============
+*/
+        .imagem-intro {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .imagem-introdução {
+            width: 100%;
+            height: 30%;
+        }
+
+        @media screen and (min-width:300px) {
+            .introdução h1 {
+                font-size: 2rem;
+                line-height: 2.5rem;
+                text-align: center;
+                margin: 2rem;
+            }
+
+            .introdução p {
+                font-size: 1rem;
+                text-align: center;
+            }
+        }
+
+        @media screen and (min-width:678px) {
+            .introdução h1 {
+                font-size: 3rem;
+                line-height: 3.5rem;
+                margin: 2rem auto;
+                max-width: 90rem;
+                padding: 2rem;
+            }
+        }
+
+        /*
+===============
+banner
+===============
+*/
+        .fundo-banner {
+            background-color: #ffd933;
+        }
+
+        .banner {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .banner h1 {
+            font-size: 3rem;
+            margin-right: 2rem;
+            text-align: center;
+        }
+
+        .banner p {
+            font-size: 1rem;
+            margin: 1rem 2rem;
+            max-width: 40rem;
+            font-weight: 500;
+            line-height: 2rem;
+        }
+
+        .imagem-banner {
+            width: 100%;
+        }
+
+        @media screen and (min-width:300px) {
+            .fundo-banner {
+                margin: 0;
+                padding: 2rem;
+            }
+
+            .banner {
+                display: grid;
+                grid-template-columns: 1fr;
+            }
+
+            .banner h1 {
+                padding: 1rem;
+                margin: auto 0;
+            }
+
+            .banner p {
+                font-size: 1.2rem;
+                text-align: center;
+            }
+        }
+
+        @media screen and (min-width:678px) {
+            .fundo-banner {
+                display: grid;
+                grid-template-columns: 1fr;
+                padding: 2rem;
+            }
+
+            .banner p {
+                font-size: 1.6rem;
+                text-align: center;
+                margin: 2rem auto;
+                max-width: 70rem;
+            }
+        }
+
+        /*
+===============
+o-que-é-home-office
+===============
+*/
+        .cor-de-fundo-o-que-é-home-office {
+            padding: 5rem 0;
+        }
+
+        .bloco.com-imagem-o-que-é-home-office {
+            width: 90vw;
+            margin: 0 auto;
+            max-width: 1170px;
+        }
+
+        .titulo-o-que-é-home-office {
+            text-align: center;
+            font-size: 1.5rem;
+            margin: auto 1rem;
+            margin-bottom: 4rem;
+        }
+
+        .texto-o-que-é-home-office p {
+            font-size: 1.2rem;
+            line-height: 2rem;
+            max-width: 50rem;
+            margin: 2rem 5rem 1rem auto;
+        }
+
+        .imagem-o-que-é-home-office img {
+            width: 100%;
+        }
+
+        .bloco-centro {
+            text-align: center;
+            max-width: 80rem;
+        }
+
+        @media screen and (min-width:300px) {
+            .texto-o-que-é-home-office p {
+                margin: auto 2rem;
+                line-height: 2.5rem;
+                margin-bottom: 1rem;
+            }
+
+            .botao-cta-home-office {
+                font-size: 1rem;
+            }
+
+            @media screen and (min-width:992px) {
+                .bloco-centro {
+                    display: grid;
+                    grid-template-columns: repeat(2, 1fr);
+                    column-gap: 8rem;
+                    row-gap: 2rem;
+                    margin: 5rem auto;
+                }
+            }
+        }
+
+        /*
+===============
+Vantagens
+===============
+*/
+        .cor-de-fundo-vantagens {
+            background-color: #ffd933;
+            padding: 5rem;
+        }
+
+        .vantagens-home-office {
+            text-align: center;
+            display: grid;
+        }
+
+        .titulo-vantagens {
+            font-size: 3rem;
+            text-align: center;
+        }
+
+        .vantagens-home-office h2 {
+            font-size: 1.4rem;
+        }
+
+        .vantagem-unica li p {
+            font-size: 1rem;
+        }
+
+        .vantagens-home-office ul {
+            list-style-type: none;
+        }
+
+        .vantagem-home-itens img {
+            width: 30%;
+        }
+
+        @media screen and (min-width:300px) {
+            .vantagens-home-office h2 {
+                font-size: 2rem;
+                text-align: center;
+                margin: 2rem auto;
+            }
+
+            .vantagem-home-itens {
+                display: grid;
+                grid-template-columns: 1fr;
+                row-gap: 2rem;
+                margin: 0;
+                padding: 1rem;
+                line-height: 2rem;
+            }
+
+            .titulo-vantagens {
+                font-size: 2rem;
+                margin: 2rem auto;
+            }
+
+            .vantagem-unica h3 {
+                font-size: 1.5rem;
+            }
+
+            .vantagem-unica .imagem-vantagem {
+                width: 50%;
+            }
+        }
+
+        @media screen and (min-width:678px) {
+            .vantagem-home-itens {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                column-gap: 3rem;
+                row-gap: 2rem;
+
+            }
+
+            .imagem-vantagem {
+                width: 60%;
+            }
+        }
+
+        @media screen and (min-width:992px) {
+            .vantagem-home-itens {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                row-gap: 2rem;
+            }
+        }
+
+        /* 
+===============
+Moveis 
+===============
+*/
+        .cor-de-fundo-moveis {
+            background-color: black;
+            color: white;
+            padding: 2rem;
+        }
+
+        .moveis {
+            margin: 2rem auto;
+            text-align: center;
+        }
+
+        .titulo-moveis {
+            text-align: center;
+            font-size: 2rem;
+            margin: 2rem;
+        }
+
+        .paragrafo-moveis {
+            /*     margin: 2rem;
+ */
+            text-align: center;
+            line-height: 3rem;
+            /*     padding: 2rem auto;
+ */
+        }
+
+        .moveis h3 {
+            font-size: 2rem;
+        }
+
+        .cor-de-fundo-moveis-botão {
+            background: black;
+        }
+
+        .imagem-móvel {
+            /*     border-radius: 10rem;
+ */
+            margin: 2rem;
+        }
+
+        .moveis p {
+            margin: 2rem;
+        }
+
+        /*espaço para o botão piscante*/
+
+        @media screen and (min-width:300px) {
+            .lista-de-moveis {
+                display: grid;
+                grid-template-columns: 1fr;
+            }
+
+            .titulo-moveis {
+                font-size: 1.5rem;
+                margin-bottom: 5rem;
+            }
+
+            .paragrafo-moveis p {
+                font-size: 1.2rem;
+                line-height: 2rem;
+            }
+
+            .imagem-móvel {
+                width: 40%;
+            }
+
+            .moveis h3 {
+                font-size: 2rem;
+            }
+
+            .moveis p {
+                font-size: 1rem;
+            }
+
+            .botao-cta-home-office {
+                /*segundo botão*/
+                font-size: 0.2rem;
+                padding: 0.2rem 4rem;
+            }
+        }
+
+        @media screen and (min-width: 768px) {
+            .lista-de-moveis {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                column-gap: 1rem;
+                margin: 2rem auto;
+
+            }
+
+            .titulo-moveis {
+                font-size: 2rem;
+            }
+
+            .imagem-móvel {
+                width: 50%;
+                object-fit: cover;
+                padding: 1rem;
+            }
+
+            .moveis {
+                font-size: 1.2rem;
+                max-width: 25rem;
+                text-align: center;
+                max-width: 60rem;
+            }
+
+        }
+
+        /* 
+===============
+Conclusão 
+===============
+*/
+
+        .botão-final {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            margin: 2rem;
+        }
+
+        .titulo-conclusão {
+            font-size: 3rem;
+            text-align: center;
+            margin: 3rem;
+        }
+
+        .paragrafo-conclusão {
+            font-size: 1rem;
+            margin: 1rem auto;
+            text-align: center;
+        }
+
+        .paragrafo-conclusão p {
+            font-size: 1rem;
+        }
+
+        @media screen and (min-width: 300px) {
+            .titulo-conclusão {
+                font-size: 1.2rem;
+                line-height: 3rem;
+            }
+
+            .paragrafo-conclusão {
+                font-size: 1rem;
+                line-height: 2rem;
+                margin: auto 2rem;
+            }
+
+            .imagem-conclusão {
+                width: 50%;
+                height: 50vh;
+                object-fit: cover;
+                margin: 0;
+                padding: 0;
+            }
+
+            .gráfico-home-office {
+                width: 50%;
+            }
+        }
+
+        @media screen and (min-width:768px) {
+            .paragrafo-conclusão {
+                max-width: 50rem;
+                margin: 2rem auto;
+            }
+
+            .gráfico-home-office {
+                max-width: 100%;
+            }
+        }
+
+        /*layout com duas colunas no final */
+        @media screen and (min-width:992px) {
+            .bloco-centro {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                column-gap: 8rem;
+                row-gap: 2rem;
+                margin: 5rem auto;
+            }
+        }
+
+        /*
+===============
+Rodapé 
+===============
+*/
+        footer {
+            background: #ffd933;
+            color: black;
+            height: auto;
+            width: 100vw;
+            font-family: open sans-serif;
+            padding-top: 2rem;
+        }
+
+        .conteúdo-do-rodapé {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .conteúdo-do-rodapé h3 {
+            font-size: 2rem;
+            font-weight: 400;
+            text-transform: capitalize;
+            line-height: 3rem;
+        }
+
+        .conteúdo-do-rodapé p {
+            max-width: 500px;
+            margin: 10px auto;
+            line-height: 28px;
+            font-size: 1.5rem;
+        }
+
+        .social-rodapé {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 2rem auto;
+        }
+
+        .social-rodapé li {
+            margin: 0 10px;
+        }
+
+        .social-rodapé a {
+            text-decoration: none;
+            color: black;
+        }
+
+        .social-rodapé a i {
+            font-size: 1.5rem;
+            transition: color 0.4s ease;
+        }
+
+        .social-rodapé a:hover i {
+            color: red;
+        }
+
+        .final-do-rodapé {
+            background: #000;
+            width: 100vw;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .final-do-rodapé p {
+            font-size: 1.2rem;
+            word-spacing: 2px;
+            text-transform: capitalize;
+            color: #fff;
+        }
+
+        .final-do-rodapé a {
+            text-decoration: none;
+            color: #ffd933;
+        }
+
+        .final-do-rodapé span {
+            text-transform: uppercase;
+            opacity: .4;
+            font-weight: 200;
+        }
+
+        @media screen and (min-width:300px) {
+            .conteúdo-do-rodapé h3 p {
+                word-wrap: break-word;
+            }
+
+            .final-do-rodapé {
+                margin: 2rem auto;
+            }
+        }
+
+        /* 
+===============
+Botão -scrool to top
+===============
+*/
+        #myBtn {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 30px;
+            z-index: 99;
+            border: none;
+            outline: none;
+            background-color: #ffd933;
+            color: black;
+            cursor: pointer;
+            padding: 15px;
+            margin-right: 1rem;
+            border-radius: 10px;
+            font-size: 18px;
+        }
+
+        #myBtn:hover {
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- menu de navegação -->
+    <nav class="menuLateral" id="menuLateral">
+        <div class="menu-centralizado">
+            <!--cabeçalho do menu-->
+            <div class="menu-cabeçalho">
+                <img src="https://cdn.pegadesconto.com.br/2020/03/logotipo-desconto-loja-mpozenato.png"
+                    style="width: 90%;" alt="logo-do-menu">
+                <!-- <button class="botão-do-menu" id="botão-do-menu">
+                    <i class="fas fa-bars"></i>
+                 </button> -->
+                <!-- menu oculto temporariamente -->
+            </div>
+            <!-- links-do-menu -->
+            <ul class="links-do-menu">
+                <li>
+                    <a href="https://www.mpozenato.com.br/">Nossa loja</a>
+                </li>
+                <li>
+                    <a href="https://www.mpozenato.com.br/faq?quem-somos">Quem somos</a>
+                </li>
+                <li>
+                    <a href="https://www.mpozenato.com.br/faq?atendimento">Contato</a>
+                </li>
+            </ul>
+            <!-- fim dos links-do-menu -->
+        </div>
+    </nav>
+    <!-- fim do menu de navegação-->
+    <!--menu lateral-->
+    <div class="container">
+        <nav class="navbar">
+            <div class="hamburger-menu">
+                <div class="line line-1"></div>
+                <div class="line line-2"></div>
+                <div class="line line-3"></div>
+            </div>
+            <ul class="nav-list">
+                <li class="nav-item">
+                    <a href="https://www.mpozenato.com.br/" class="nav-link" target="_blank">Nossa loja</a>
+                </li>
+                <li class="nav-item">
+                    <a href="https://www.mpozenato.com.br/faq?quem-somos" class="nav-link" target="_blank">Quem
+                        somos</a>
+                </li>
+                <li class="nav-item">
+                    <a href="https://www.mpozenato.com.br/faq?atendimento" class="nav-link" target="_blank">Contato</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <script src="./js/app.js"></script>
+    <!--menu lateral-->
+    <!-- introdução-->
+    <div class="introdução">
+        <h1>O que você precisa saber para montar o seu home office!</h1>
+    </div>
+    <div class="imagem-intro">
+        <!-- imagem 1-->
+        <img src="https://i.postimg.cc/ryWjQ84m/esta-o-de-trabalho-home-office.jpg" alt="" class="imagem-introdução">
+        <!-- imagem 2-->
+        <img src="https://i.postimg.cc/PqgZww2M/ambiente-completo-2.png" alt="" class="imagem-introdução">
+        <!-- imagem 3-->
+        <img src="https://i.postimg.cc/FKNXsWQb/esta-o-de-trabalho-3.png" alt="" class="imagem-introdução">
+    </div>
+    <!-- fim da introdução-->
+    <!--banner-->
+    <section class="fundo-banner">
+        <article class="banner">
+            <p>Todo mundo já sonhou em trabalhar em casa durante algum momento da vida.</p>
+            <p>A ideia de estar próximo da família, ter mais tempo para os filhos e também para si mesmo parece
+                tentadora, não é mesmo?</p>
+            <p>E se eu te disser que ela já é uma realidade, você acreditaria?</p>
+        </article>
+    </section>
+    <!-- O que é home office-->
+    <!--titulo-->
+    <section class="bloco-centro">
+        <!-- img-->
+        <article class="imagem-o-que-é-home-office">
+            <!--titulo-->
+            <div class="titulo-o-que-é-home-office">
+                <h2>O que é home office</h2>
+            </div>
+            <img src="https://www.papocriativo.com.br/wp-content/uploads/2020/07/home-of-vetor4.jpg" alt=""
+                class="imagem-home-ofice">
+            <img src="https://i.pinimg.com/736x/bd/52/e3/bd52e37006fa085dfdc011406441615e.jpg" alt=""
+                class="imagem-home-ofice">
+        </article>
+        <!--texto o que é home office-->
+        <article class="texto-o-que-é-home-office">
+            <p>Apesar de muita gente saber o significado dessas duas palavras juntas, ainda existem pessoas que acabaram
+                de cair de
+                paraquedas por aqui.</p>
+            <p>Se você é uma delas, não se preocupe que a gente explica!</p>
+            <p>O termo vem do inglês e significa "escritório em casa".</p>
+            <p>É uma forma de dizer que você está trabalhando fora do seu escritório e agora tem um lugar dentro de casa
+                para fazer
+                suas atividades profissionais.</p>
+            <p>Essa modalidade de trabalho remoto tem ganhado cada vez mais adeptos por causa dos benefícios que traz
+                tanto para
+                empresas quanto para colaboradores.</p>
+            <p>Se o seu trabalho não exige a sua presença física, bom, meu amigo, existe a grande chance de você começar
+                a trabalhar
+                em casa, no seu próprio cantinho.</p>
+            <p>Agora você pode ter mais privacidade e ainda ser mais produtivo.</p>
+            <p>Quer algo melhor do que isso?</p>
+            <!-- botão CTA-->
+            <a href="https://www.mpozenato.com.br/escritorio-e-home-office/ambientes-completos" target="_blank">
+                <button class="botao-cta-home-office">
+                    <p style="font-size: 1rem; line-height: 2rem; margin: 1rem;">Quero montar meu home office!</p>
+                </button>
+            </a>
+            <!-- fim do botão CTA-->
+        </article>
+    </section>
+    <!-- fim de "O que é home office -->
+    <!-- vantagens do home office-->
+    <section class="cor-de-fundo-vantagens">
+        <article class="vantagens-home-office">
+            <h2>Vantagens de montar o seu home office em casa</h2>
+            <!-- lista de vantagens -->
+            <ul class="vantagem-home-itens">
+                <!--vantagem única-->
+                <li class="vantagem-unica">
+                    <h3>Qualidade de vida</h3>
+                    <img src="https://cdn.iconscout.com/icon/free/png-256/health-fitness-care-safe-fresh-heart-1-4142.png"
+                        alt="" class="imagem-vantagem">
+                    <p>Mais horas de sono melhoram o humor e geram mais disposição para trabalhar.</p>
+                </li>
+                <!--fim vantagem única-->
+                <!--vantagem única-->
+                <li class="vantagem-unica">
+                    <h3>Economia</h3>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzsUoYOqXLdFV6i5ouuLDOY2uEvUv18A7HMA&usqp=CAU"
+                        alt="" class="imagem-vantagem" style="border-radius: 10rem;">
+                    <p>Gaste melhor o seu salário e economize preparando sua própria comida em casa.</p>
+                </li>
+                <!--fim vantagem única-->
+                <!--vantagem única-->
+                <li class="vantagem-unica">
+                    <h3>Conforto</h3>
+                    <img src="https://thumbs2.imgbox.com/b8/11/dchAwwjm_t.jpg" alt="" class="imagem-vantagem"
+                        style="border-radius: 9rem;">
+                    <p>Nada se compara ao prazer de trabalhar no seu cantinho, sem sentir dores ou desconfortos.</p>
+                </li>
+                <!--fim vantagem única-->
+                <!--vantagem única-->
+                <li class="vantagem-unica">
+                    <h3>Produtividade</h3>
+                    <img src="https://cdn.iconscout.com/icon/free/png-256/productivity-31-1165277.png" alt=""
+                        class="imagem-vantagem">
+                    <p>A concentração e o foco ficam maiores, refletindo na melhora da produtividade.</p>
+                </li>
+                <!--fim vantagem única-->
+                <!--vantagem única-->
+                <li class="vantagem-unica">
+                    <h3>Ganho de tempo</h3>
+                    <img src="https://cdn.iconscout.com/icon/free/png-256/productivity-31-1165277.png" alt=""
+                        class="imagem-vantagem">
+                    <p>Menos tempo perdido no trânsito. Mais tempo para fazer o que você mais gosta depois do
+                        expediente.</p>
+                </li>
+                <!--fim vantagem única-->
+                <!--vantagem única-->
+                <li class="vantagem-unica">
+                    <h3>Familia</h3>
+                    <img src="https://travelpedia.com.br/wp-content/uploads/2020/08/familia-icone-PIXABAY-2411131_640.png"
+                        alt="" class="imagem-vantagem">
+                    <p>A proximidade com seus familiares torna o trabalho em casa menos cansativo e mais prazeroso.</p>
+                </li>
+                <!--fim vantagem única-->
+            </ul>
+        </article>
+    </section>
+    <!-- fim do vantagens do home office-->
+    <!-- móveis-->
+    <section class="cor-de-fundo-moveis">
+        <!-- título (moveis) -->
+        <div class="titulo-moveis">
+            <h2>Quais são os melhores móveis para o home office?</h2>
+        </div>
+        <!-- parágrafo móveis-->
+        <div class="paragrafo-moveis">
+            <p>Um <b>escritório confortável</b> é aquele que tem o básico e ainda assim oferece conforto para você
+                trabalhar sem sentir dores no corpo.</p>
+            <p>O que você precisa saber é que não é preciso de muito para montar o seu cantinho de trabalho.</p>
+            <p>A combinação <b>cadeira giratória</b>, <b>mesa escrivaninha</b>, <b>gaveteiro</b> e <b>prateleira</b> é
+                mais do que suficiente para começar a trabalhar em casa.</p>
+            <!-- lista de móveis-->
+            <section class="lista-de-moveis">
+                <!-- movel unico -->
+                <article class="moveis">
+                    <h3>Cadeira de escritório</h3>
+                    <img src="https://i.postimg.cc/pp7cx5K3/cadeira.png" alt="" class="imagem-móvel">
+                    <p>É nela que você vai ficar sentado a maior parte do dia. Escolha um modelo anatómico e com ajuste
+                        de altura.
+                    </p>
+                    <p>O assento e o encosto devem se moldar ao seu corpo.</p>
+                </article>
+                <!-- fim do movel unico-->
+                <!-- movel unico -->
+                <article class="moveis">
+                    <h3>Mesa escrivaninha</h3>
+                    <img src="https://i.postimg.cc/67xH4sj0/mesa.png" alt="" class="imagem-móvel">
+                    <p>Nossos modelos são compactos, duráveis, resistentes e se encaixam em qualquer espaço.</p>
+                    <p>Você vai ter espaço suficiente para colocar o notebook ou PC, além de mouse e teclado se for
+                        preciso.</p>
+                </article>
+                <!-- fim do movel unico-->
+                <!-- movel unico -->
+                <article class="moveis">
+                    <h3>Gaveteiro</h3>
+                    <img src="https://i.postimg.cc/NKHJ0G4F/gaveteiro.png" style="border-radius: rem;" alt=""
+                        class="imagem-móvel">
+                    <p>Ideal guardar papéis, documentos, livros e outros pertentes.</p>
+                    <p>Cada um dos nossos gaveteiros foi feito para simplificar a sua vida e organizar o seu home
+                        office.</p>
+                </article>
+                <!-- fim do movel unico-->
+                <!-- movel unico -->
+                <article class="moveis">
+                    <h3>Prateleiras</h3>
+                    <img src="https://i.postimg.cc/kVNTxjLd/prateleira.png" alt="" class="imagem-móvel">
+                    <p>A sua coleção de livros merece um lugar seguro e especial.</p>
+                    <p>Cada prateleira foi feita para deixá-los sempre ao alcance das mãos.</p>
+                </article>
+                <!-- fim do movel unico-->
+            </section>
+            <!-- lista de móveis-->
+            <!-- botão CTA-->
+            <a href="https://www.mpozenato.com.br/escritorio-e-home-office?busca=&ordenacao=precoPor" target="_blank">
+                <button class="botao-cta-home-office">
+                    <p>Me mostre os móveis baratos!</p>
+                </button>
+            </a>
+            <!-- botão CTA-->
+        </div>
+        <!-- fim parágrafo móveis-->
+    </section>
+    <!-- Conclusão -->
+    <div class="bloco-conclusão-1">
+        <!-- título (moveis) -->
+        <div class="titulo-conclusão">
+            <h2>E aí, precisa de mais motivos para montar o seu home office?</h2>
+            <img src="./imagens/Home-office-design-vector-04.jpg" alt="" class="imagem-conclusão">
+        </div>
+        <!-- parágrafo -->
+        <div class="paragrafo-conclusão">
+            <p>Se você ainda não está convencido (a) sobre os benefícios de ter o seu próprio <b>escritório em casa</b>,
+                que tal
+                conferir alguns dados que confirmam essa tendência no Brasil?
+                <p> De acordo com o IBGE (Instituto Brasileiro de Geografia e Estatística), cerca de 11% dos brasileiros
+                    trabalharam
+                    em algum momento em casa ao longo do ano de 2020 com a chegada da pandemia do coronavírus.</p>
+        </div>
+    </div>
+    <div class="bloco-conclusão-1">
+        <!-- parágrafo -->
+        <div class="paragrafo-conclusão">
+            <p>Se formos analisar informações como gênero, faixa etária, situação socioeconômica e setor de trabalho,
+                chegamos ao seguinte gráfico:
+        </div>
+        <div class="titulo-conclusão">
+            <!--gráfico-->
+            <img src="https://i.postimg.cc/1tV3Cpz6/dados-home-office-reduzida.png" alt="" class="gráfico-home-office">
+            <!--gráfico-->
+        </div>
+    </div>
+    <div class="bloco-conclusão-1">
+        <!-- parágrafo -->
+        <div class="paragrafo-conclusão">
+            <p>Independente de você se encaixar nesse perfil ou não, mas quer ter um espaço de trabalho em casa, saiba
+                que o mercado está mais
+                do que aquececido e disposto para te receber.</p>
+        </div>
+        <div class="paragrafo-conclusão">
+            <p>O Home office chegou para ficar e você pode aproveitar para se beneficiar de todas as vantagens dele
+                agora mesmo.
+            </p>
+        </div>
+    </div>
+    <div class="paragrafo-conclusão">
+        <p>Nós, da Mpozenato, podemos te ajudar a montar o seu cantinho de trabalho em poucos segundos!</p>
+        <p>É só clicar no botão abaixo!</p>
+    </div>
+    <!-- botão de ação-->
+    <div class="botão-final">
+        <a href="https://www.mpozenato.com.br/escritorio-e-home-office/cadeiras-para-escritorio" target="_blank">
+            <button class="botao-cta-home-office-final">
+                <p style="font-size: 1rem; margin:0;">Quero ver os móveis com desconto!</p>
+            </button>
+        </a>
+        <!-- botão de ação-->
+    </div>
+    <!--rodapé da LP-->
+    <footer>
+        <div class="conteúdo-do-rodapé">
+            <h3>Mpozenato</h3>
+            <p>Móveis e decoração para a casa.</p>
+            <ul class="social-rodapé">
+                <li><a href="https://pt-br.facebook.com/mpozenatomoveis/"><i class="fab fa-facebook-square"></i></a>
+                </li>
+                <li><a href="https://www.instagram.com/mpozenato/?hl=pt-br"><i class="fab fa-instagram-square"></i></a>
+                </li>
+                <li><a href="https://www.youtube.com/user/mpozenato"><i class="fab fa-youtube-square"></i></a></li>
+            </ul>
+        </div>
+        <!--rodapé da LP-->
+        <!-- final do rodapé-->
+        <div class="final-do-rodapé">
+            <p>copyright &copy; 2021 Mpozenato. Desenvolvido por <a href="https://getulio-souza.netlify.app/"
+                    target="_blank">Getúlio Souza.</a></p>
+        </div>
+        <!-- final do rodapé-->
+    </footer>
+    <!-- botão para começo da página-->
+    <button onclick="topFunction()" id="myBtn" title="Voltar para início">Início</button>
+</body>
+
+</html>
